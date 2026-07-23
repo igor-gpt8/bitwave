@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — BitWave</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/particles.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+
+    <div class="canvas-container">
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <div id="navbar"></div>
+
+    <!-- Основной контейнер ЛК -->
+    <main class="page-container">
+        <section class="reveal">
+            <h1 class="section-title" style="text-align: left; margin-bottom: 8px;">Личный кабинет</h1>
+            <p class="section-subtitle" style="text-align: left; margin-left: 0; max-width: 600px; margin-bottom: 32px;"
+                id="profile-welcome">Добро пожаловать в панель управления доступом.</p>
+        </section>
+
+        <div class="profile-grid">
+            <!-- Карточка: Идентификация -->
+            <div class="profile-card reveal" style="transition-delay: 100ms;">
+                <div>
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Идентификация
+                    </h3>
+                    <div class="info-row">
+                        <span>Telegram ID</span>
+                        <strong id="profile-tg-id">Загрузка...</strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Статус линковки</span>
+                        <strong id="profile-link-status" style="color: #ff453a;">Проверка...</strong>
+                    </div>
+                </div>
+                <!-- Можно добавить кнопку привязки Telegram в будущем -->
+            </div>
+
+            <!-- Карточка: Управление услугами -->
+            <div class="profile-card reveal" style="transition-delay: 200ms;">
+                <div>
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                            <line x1="12" y1="4" x2="12" y2="20"></line>
+                        </svg>
+                        Управление услугами
+                    </h3>
+                    <div class="info-row">
+                        <span>Текущий статус</span>
+                        <span id="profile-sub-status" class="badge-success">Активна до 2026-08-15</span>
+                    </div>
+                    <div class="info-row">
+                        <span>Доступ к нодам</span>
+                        <strong style="color: #30d158;">Синхронизирован</strong>
+                    </div>
+                </div>
+                <button class="btn-primary" style="height: 40px; font-size: 13px; font-weight: 600;"
+                    onclick="window.location.href='quick-start.html'">Продлить доступ</button>
+            </div>
+        </div>
+
+        <!-- Секция: Статистика трафика -->
+        <div class="usage-section reveal" style="transition-delay: 300ms;">
+            <div class="usage-header">
+                <span class="usage-title">Использование трафика за текущий расчетный период</span>
+                <strong style="color: var(--text-primary); font-size: 15px;">42.4 ГБ / 100 ГБ</strong>
+            </div>
+            <div class="usage-bar-container">
+                <div class="usage-bar-fill"></div>
+            </div>
+            <div class="usage-meta">
+                <span>Обновлено только что</span>
+                <span>Осталось: 57.6 ГБ</span>
+            </div>
+        </div>
+
+        <button class="btn-logout reveal" style="transition-delay: 350ms;" onclick="handleLogout()">Выйти из
+            системы</button>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/particles.js"></script>
+    <script src="../js/dropdown.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+
+</html>

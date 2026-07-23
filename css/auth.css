@@ -1,0 +1,283 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Разрешаем блоку съехать вверх/вниз */
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 24px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Карточка: максимально узкая и принудительно опущенная вниз */
+.auth-centered-wrapper {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 30vh;
+}
+
+/* Иконка бренда */
+.auth-brand-logo {
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.auth-main-title {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 32px;
+}
+
+/* Ряд кнопок быстрой авторизации */
+.auth-oauth-row {
+  display: flex;
+  justify-content: space-between; /* Распределяет кнопки равномерно */
+  gap: 8px; /* Чуть уменьшил зазор для узкой формы */
+  width: 100%;
+}
+
+/* Плитка соцсети */
+.btn-oauth-tile {
+  flex: 1; /* Все 3 кнопки займут равную ширину */
+  /* height: 42px; */
+  padding: 12px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-medium);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-oauth-tile:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Тонкие линии по бокам от "или" */
+.auth-minimal-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  font-size: 10px; /* Сделаем шрифт чуть меньше для большей эстетики */
+  color: var(--text-secondary); /* Приглушенный цвет текста */
+  margin: 20px 0;
+  font-weight: 400;
+  text-transform: uppercase; /* По желанию: делает "ИЛИ" аккуратными мелкими буквами */
+  letter-spacing: 0.05em;
+}
+
+/* Сами полоски */
+.auth-minimal-divider::before,
+.auth-minimal-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.08
+  ); /* Точно такая же тонкая линия, как у полей */
+}
+
+/* Отступы от текста до линий */
+.auth-minimal-divider::before {
+  margin-right: 12px;
+}
+
+.auth-minimal-divider::after {
+  margin-left: 12px;
+}
+
+/* Стек формы */
+.auth-minimal-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Плотное расположение полей */
+}
+
+.input-wrapper-modern {
+  width: 100%;
+}
+
+/* Обновленный инпут с мягкой интерактивностью */
+.input-modern {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 14px 14px;
+  font-size: 13px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.input-modern::placeholder {
+  color: var(--text-secondary);
+}
+
+.input-modern:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.input-modern:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: var(--bg-dark-gray);
+}
+
+/* Фирменная монохромная кнопка Raycast */
+.btn-raycast-primary {
+  width: 100%;
+  background: #e3e3e3;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-top: 6px;
+}
+
+.btn-raycast-primary:hover {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.btn-raycast-primary:active {
+  transform: scale(0.99);
+}
+
+/* Сноска в самом низу страницы */
+.auth-minimal-footer {
+  margin-top: 28px;
+  font-size: 13px;
+}
+
+.auth-minimal-footer a {
+  /* color: var(--text-muted); */
+  transition: var(--transition-fast);
+}
+
+.auth-minimal-footer a:hover {
+  color: var(--text-primary);
+}
+
+/* Юридический блок с кастомным чекбоксом */
+.auth-legal-notice {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.legal-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.legal-checkbox-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.custom-checkmark {
+  width: 14px;
+  height: 14px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.legal-checkbox-label:hover input ~ .custom-checkmark {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.legal-checkbox-label input:checked ~ .custom-checkmark {
+  background: #e3e3e3;
+  border-color: #e3e3e3;
+}
+
+.custom-checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 1px;
+  width: 3px;
+  height: 6px;
+  border: solid #000000;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+
+.legal-checkbox-label input:checked ~ .custom-checkmark::after {
+  display: block;
+}
+
+.legal-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.legal-text:hover {
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+/* ==================================== */
+/* Стили для нижней кнопки-ссылки       */
+/* ==================================== */
+.auth-minimal-footer {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.btn-secondary-outline {
+  display: block;
+  width: 100%;
+  padding: 14px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary-outline:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.btn-secondary-outline:active {
+  transform: scale(0.99);
+}

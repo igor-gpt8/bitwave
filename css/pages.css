@@ -1,0 +1,145 @@
+/* Hero и контентные секции */
+.hero-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 140px 24px 80px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-capsule);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+/* Эффектный градиент для текста в стиле Stripe/Vercel */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 30%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Эффект пролитой краски на тексте 
+.gradient-text {
+  position: relative;
+  display: inline-block;
+
+   Яркая "жидкая" заливочная палитра 
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    var(--accent-blue) 45%,
+    #00d2ff 85%,
+    #0055ff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+   Подключаем SVG-фильтр деформации 
+  filter: url(#paint-drip);
+}
+
+Дополнительный слой с эффектом "капель" и свечения сзади
+.gradient-text::after {
+  content: "в каждом клике.";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 40%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(12px) opacity(0.6);
+  pointer-events: none;
+} */
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto 40px auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Медленное кинематографичное проявление главного экрана */
+.hero-section.reveal {
+  transition:
+    opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0ms;
+}
+
+/* Внутренние контейнеры страниц */
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 140px 24px 80px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 48px auto;
+}
+
+.link {
+  color: var(--accent-blue);
+  text-decoration: none;
+
+  border-bottom-color: transparent;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--accent-blue-hover);
+  border-bottom: 1px solid currentColor;
+}

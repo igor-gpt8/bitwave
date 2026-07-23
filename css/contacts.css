@@ -1,0 +1,510 @@
+/* ==========================================================================
+   LINEAR-STYLE SPLIT GRID (Основной каркас для всех трех страниц)
+   ========================================================================== */
+
+.contacts-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 140px 24px 80px 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.linear-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 60px auto 40px auto;
+  align-items: start;
+  padding: 0 24px;
+}
+
+/* Левая текстовая колонка */
+.linear-hero-column {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  /* position: static; */
+  top: 140px; /*Фиксация контента при скролле правой части*/
+}
+
+.linear-hero-column.reveal {
+  transition:
+    opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0ms;
+}
+
+.linear-hero-column .hero-title {
+  text-align: left;
+  font-size: 48px;
+  font-weight: 650;
+  padding-bottom: 20px;
+}
+
+.linear-hero-column .hero-subtitle {
+  margin-left: 0;
+  max-width: 480px;
+  text-align: left;
+}
+
+.linear-hero-column h3 {
+  font-size: 18px;
+  /* line-height: 1.6; */
+  color: var(--text-secondary);
+  margin-left: 0;
+  max-width: 480px;
+  text-align: left;
+  font-weight: 240;
+}
+
+/* Переключатель контекста внизу левой колонки ("Связаться со службой поддержки" и т.д.) */
+.linear-switch-context {
+  margin-top: 40px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.linear-switch-context a {
+  color: var(--accent-blue);
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.linear-switch-context a:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+/* Правая колонка: контейнер для карточек хаба */
+.linear-cards-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-center;
+}
+
+/* ==========================================================================
+   PAGE 1: contacts.html (Карточки выбора направления)
+   ========================================================================== */
+
+.linear-choice-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-large);
+  padding: 32px;
+  backdrop-filter: var(--blur-premium);
+  -webkit-backdrop-filter: var(--blur-premium);
+  transition: var(--transition-smooth);
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  max-width: 540px;
+}
+
+/* Изящная подсветка границ карточки Linear при наведении */
+.linear-choice-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.linear-choice-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  transition: var(--transition-fast);
+}
+
+.linear-choice-card:hover h3 {
+  color: var(--accent-blue);
+}
+
+.linear-choice-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ==========================================================================
+   PAGES 2 & 3: Оформление списков преимуществ (Левая колонка)
+   ========================================================================== */
+
+.linear-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.linear-features-list li {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Кастомный минималистичный чекбокс с галочкой */
+.feature-icon-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.feature-icon-check::after {
+  content: "";
+  width: 5px;
+  height: 9px;
+  border: solid var(--accent-blue);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 3px;
+}
+
+/* ==========================================================================
+   ФОРМЫ И БЛОКИ АВТОРИЗАЦИИ (Правая колонка)
+   ========================================================================== */
+
+/* Обертка формы */
+.contact-form-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-large);
+  padding: 40px;
+  backdrop-filter: var(--blur-premium);
+  -webkit-backdrop-filter: var(--blur-premium);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  max-width: 480px;
+}
+
+/* Тексты внутри инпутов и форм */
+.form-instruction-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+.form-group-modern {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label-modern {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Кнопка отправки и сноска под ней */
+.form-actions-modern {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.linear-submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-weight: 600;
+}
+
+.form-alternative-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.form-alternative-note a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+
+.form-alternative-note a:hover {
+  color: var(--text-primary);
+}
+
+/* PAGE 3 SPECIFIC: Карточка ограничения доступа (Заглушка авторизации) */
+.linear-auth-gate {
+  display: flex;
+  flex-direction: column;
+}
+
+.linear-gate-box {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-medium);
+  padding: 32px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.linear-gate-box p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 280px;
+}
+
+.linear-gate-btn {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   СИМУЛЯЦИЯ ИНТЕРАКТИВНОГО ЧАТА (Оставляем твою рабочую логику)
+   ========================================================================== */
+
+.chat-simulation {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.chat-simulation.show {
+  display: flex;
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 14px 18px;
+  border-radius: var(--radius-large);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.chat-bubble.bot {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  align-self: flex-start;
+  color: var(--text-primary);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble.user {
+  background: var(--accent-blue);
+  color: #ffffff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+/* Индикатор набора текста ботом */
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-large);
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--text-secondary);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: typing 1s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   АДАПТИВНОСТЬ (Responsive design)
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .linear-split-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-top: 40px;
+  }
+
+  .linear-hero-column {
+    position: static;
+  }
+
+  .linear-switch-context {
+    margin-top: 24px;
+  }
+}
+
+/* ==========================================================================
+   ПРЕМИАЛЬНЫЙ РИТМ (Обновление архитектуры)
+   ========================================================================== */
+
+/* Жесткий ритм левой колонки */
+.hero-title-premium {
+  font-size: 44px;
+  line-height: 1.08;
+  font-weight: 650;
+  max-width: 420px;
+  color: var(--text-primary); /* [cite: 2] */
+  margin-bottom: 28px; /* Жесткий отступ ↓ 28 */
+}
+
+.hero-subtitle-premium {
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 430px;
+  color: var(--text-secondary); /* [cite: 2] */
+  margin-bottom: 40px; /* Жесткий отступ ↓ 40 */
+}
+
+.linear-features-list {
+  margin-bottom: 48px; /* Отступ до FAQ ↓ 48 */
+}
+
+/* Блок FAQ */
+.faq-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.faq-text {
+  font-size: 14px;
+  color: var(--text-muted); /* [cite: 3] */
+}
+
+/* Жесткий ритм правой колонки */
+.form-header-premium {
+  margin-bottom: 32px; /* Отступ до формы ↓ 32 */
+}
+
+.form-header-premium .form-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px; /* Заголовок ↓ 8 */
+}
+
+.form-header-premium .form-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Поле сообщения */
+.textarea-large {
+  height: 220px;
+  resize: none;
+  margin-bottom: 8px;
+}
+
+/* Блок подтвержденного аккаунта (Продуктовый UI) */
+.user-identity-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle); /* [cite: 2] */
+  border-radius: var(--radius-medium); /* [cite: 7] */
+}
+
+.identity-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.identity-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.identity-name {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.identity-status {
+  color: var(--accent-success); /* [cite: 3] */
+  font-size: 12px;
+}
+
+/* Авторизационный гейт */
+.premium-gate {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.premium-gate .linear-gate-box {
+  padding: 24px;
+}
+
+/* Блок альтернативных связей */
+.alt-contact-block {
+  margin-top: 24px;
+}
+
+.alt-contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}

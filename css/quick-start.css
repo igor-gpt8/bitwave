@@ -1,0 +1,307 @@
+/* =========================================
+   СТРУКТУРА И СЕТКА МАСТЕРА
+   ========================================= */
+
+/* Главный контейнер с центрированием и отступом 140px от навбара[cite: 1] */
+.setup-master {
+  max-width: 1100px; /* Фиксированная максимальная ширина из вашей системы[cite: 1] */
+  margin: 0 auto;
+  padding: 140px 24px 96px 24px; /* 140px сверху, чтобы контент не перекрывался навбаром[cite: 1] */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2; /* Поверх фонового канваса[cite: 1] */
+}
+
+/* === HERO ВСТУПЛЕНИЕ === */
+.setup-hero {
+  margin-bottom: 96px;
+  width: 100%;
+}
+
+.setup-title {
+  font-size: 48px;
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  max-width: 520px;
+  margin-bottom: 24px;
+}
+
+.setup-subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+
+.setup-meta {
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* === ЛИНИЯ ПРОЦЕССА (TIMELINE) === */
+.setup-timeline {
+  position: relative;
+  /* Увеличиваем отступ слева, чтобы цифры 01, 02 не вылезали за края контейнера */
+  padding-left: 56px;
+  margin-left: 24px;
+  border-left: 1px solid var(--border-subtle);
+  margin-bottom: 96px;
+  width: calc(100% - 24px);
+}
+
+.setup-step {
+  position: relative;
+  margin-bottom: 96px;
+  width: 100%;
+}
+
+.setup-step:last-child {
+  margin-bottom: 0;
+}
+
+/* Номера шагов на линии */
+.step-number {
+  position: absolute;
+  left: -81px; /* Аккуратно сажаем номер по центру вертикальной линии */
+  top: -4px;
+  width: 48px;
+  text-align: center;
+  font-size: 34px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.12); /* Аккуратный светло-серый оттенок */
+  background: var(--bg-dark); /* Закрываем линию под цифрой */
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* === КОНТЕНТ ШАГОВ === */
+.step-title {
+  font-size: 34px;
+  font-weight: 650;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.step-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+/* === ШАГ 1 === */
+.currency-selector.compact {
+  display: inline-flex;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-capsule);
+  padding: 0;
+  height: 42px;
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+
+.currency-selector.compact .currency-btn {
+  height: 100%;
+  padding: 0 24px;
+  border-radius: 0;
+  font-size: 14px;
+}
+
+.currency-selector.compact .currency-btn.active {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  color: var(--text-primary);
+}
+
+.info-card-light {
+  margin-top: 48px;
+  padding: 24px 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-medium);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 700px;
+}
+
+.info-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.info-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* === ШАГ 2 (ПРИЛОЖЕНИЯ) === */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.app-card-light {
+  padding: 32px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-large);
+  background: transparent;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.app-card-light:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.app-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.text-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-blue);
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.text-link:hover {
+  color: var(--text-primary);
+}
+
+/* === ШАГ 3 (ИНСТРУКЦИЯ) === */
+.apple-style-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 600px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.apple-style-list li {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 16px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.list-num {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* === ФИНАЛЬНЫЙ БЛОК === */
+.setup-final {
+  width: 100%;
+  margin-bottom: 96px;
+}
+
+.status-card-premium {
+  margin-top: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-large);
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 40px var(--bg-shadow);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.status-dot-green {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-success);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(48, 209, 88, 0.4);
+}
+
+.status-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-success);
+}
+
+.status-location {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.status-ip {
+  font-size: 48px;
+  font-weight: 650;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Мобильный адаптив */
+@media (max-width: 768px) {
+  .setup-master {
+    padding: 120px 16px 60px 16px;
+  }
+  .setup-timeline {
+    padding-left: 36px;
+    margin-left: 12px;
+  }
+  .step-number {
+    left: -61px;
+    font-size: 24px;
+  }
+  .status-card-premium {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 32px;
+  }
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,216 @@
+/* Авторизация в стиле Vercel / Linear */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  width: 100%;
+}
+
+.auth-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--blur-premium);
+  -webkit-backdrop-filter: var(--blur-premium);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-large);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.auth-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+/* Поля ввода */
+/* Базовые стили поля ввода */
+.input-modern {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-medium);
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: all 0.2s ease; /* Плавная анимация */
+  outline: none;
+}
+
+/* Легкая подсветка при наведении */
+.input-modern:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Яркая подсветка при фокусе (нажатии) */
+.input-modern:focus {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-glow);
+}
+
+/* Умное текстовое поле (начальный размер и лимиты) */
+.textarea-auto {
+  height: 80;
+  min-height: 80px; /* Небольшой стартовый квадрат */
+  max-height: 220px; /* Максимальная высота, дальше скролл */
+  resize: none; /* Запрещаем ручное растягивание за уголок */
+  overflow-y: hidden; /* Прячем скролл по умолчанию */
+}
+
+/* Показываем скролл только при наведении мыши (Webkit) */
+.textarea-auto::-webkit-scrollbar {
+  width: 6px;
+}
+.textarea-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+.textarea-auto::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: var(--radius-capsule);
+}
+.textarea-auto:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+.textarea-auto:hover::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.input-modern::placeholder {
+  color: var(--text-muted);
+}
+
+/* Разделитель "ИЛИ" */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 24px 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.auth-divider:not(:empty)::before {
+  margin-right: 12px;
+}
+
+.auth-divider:not(:empty)::after {
+  margin-left: 12px;
+}
+
+/* Кнопки OAuth */
+.btn-outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-medium);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-bottom: 12px;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.auth-footer {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.auth-footer a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Элементы Дашборда (Профиль) */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row span {
+  color: var(--text-secondary);
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: var(--radius-capsule);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-success {
+  background: rgba(48, 209, 88, 0.15);
+  color: var(--accent-success);
+  border: 1px solid rgba(48, 209, 88, 0.3);
+}
+
+/* Сетка клиентов (Быстрый старт) */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.client-app-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-medium);
+  padding: 16px;
+  text-align: center;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.client-app-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+}

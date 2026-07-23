@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* scroll-behavior: smooth; */
+  /* overflow-x: hidden; */
+  /* background:
+    radial-gradient(
+      1200px 700px at 50% -10%,
+      rgba(60, 130, 255, 0.08),
+      transparent 70%
+    ),
+    radial-gradient(
+      900px 600px at 100% 30%,
+      rgba(0, 170, 255, 0.04),
+      transparent 80%
+    ),
+    linear-gradient(180deg, #072526 0%, #051f20 40%, #04191b 100%); */
+
+  /* background-image:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(54, 120, 255, 0.12),
+      transparent 45%
+    ),
+    radial-gradient(circle at 80% 70%, rgba(0, 180, 255, 0.06), transparent 40%); */
+}
+
+body {
+  min-height: 110vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Скроллбар в стиле macOS/iOS */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-capsule);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* .main-container {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 24px 60px 24px; 
+  Отступы с учетом плавающего навбара
+} */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Анимация при скролле для Intersection Observer */
+.reveal {
+  will-change: opacity, transform;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.fade-up {
+  transform: translateY(40px);
+}
+
+/* Появление слева */
+.reveal.fade-left {
+  transform: translateX(-20px);
+}
+
+/* Появление справа */
+.reveal.fade-right {
+  transform: translateX(20px);
+}
+
+/* Мягкое увеличение */
+.reveal.scale-up {
+  transform: scale(0.92);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Анимации */
+.fade-in-page {
+  will-change: opacity, transform;
+  animation: pageReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes pageReveal {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in-left {
+  will-change: opacity, transform;
+  opacity: 0;
+  animation: fadeLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  will-change: opacity, transform;
+  opacity: 0;
+  animation: fadeRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-up {
+  will-change: opacity, transform;
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-down {
+  will-change: opacity, transform;
+  opacity: 0;
+  animation: fadeDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
