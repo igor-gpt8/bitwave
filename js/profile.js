@@ -37,7 +37,7 @@ const PROFILE_DATA = {
     twoFactorAuth: false,
   },
   support: {
-    telegram: "https://t.me/example",
+    telegram: "https://t.me/b1twave_bot",
     email: "dev.pevnev@gmail.com",
   },
 };
