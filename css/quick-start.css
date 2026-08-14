@@ -434,7 +434,7 @@
 .guide-phone-mockup {
   flex-shrink: 0;
   height: min(720px, 70vh);
-  aspect-ratio: 1 / 2; 
+  aspect-ratio: 1 / 2;
   position: relative;
   box-sizing: border-box;
   will-change: transform;
@@ -467,8 +467,8 @@
   transform: translateY(0) scale(1);
 }
 .guide-info-panel {
-  flex: 1; 
-  min-width: 0; 
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -478,7 +478,7 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 32px;
-  max-width: 420px; 
+  max-width: 420px;
 }
 .progress-bar {
   flex: 1;
@@ -531,13 +531,13 @@
   margin-bottom: 16px;
 }
 .text-slide h3 {
-  font-size: 38px; 
+  font-size: 38px;
   font-weight: 650;
   line-height: 1.15;
   color: var(--text-primary);
   margin-bottom: 16px;
   letter-spacing: -0.02em;
-  max-width: 680px; 
+  max-width: 680px;
 }
 .text-slide p {
   font-size: 18px;
@@ -621,7 +621,7 @@
   margin: 0;
   letter-spacing: -0.01em;
 }
-@media (max-width: 1600px) {
+@media (max-width: 1024px) {
   .setup-master {
     width: 100%;
     max-width: 100%;
@@ -664,9 +664,7 @@
   }
   .guide-phone-mockup {
     width: 100%;
-    max-width: calc(
-      100vw - 60px
-    ); 
+    max-width: calc(100vw - 60px);
     flex: 1 1 auto;
     min-height: 0;
     max-height: 60vh;

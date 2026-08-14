@@ -8,16 +8,16 @@ const APPS_DATA = {
         url: "https://apps.apple.com/ru/app/wisp-vpn-proxy-vless-xray/id6767654269",
       },
       {
-        id: "v2ray",
-        name: "v2ray",
-        icon: "../media/icons/v2ray.webp",
-        url: "https://apps.apple.com/ru/app/v2ray-client/id6747379524",
-      },
-      {
         id: "incy",
         name: "incy",
         icon: "../media/icons/incy.webp",
         url: "https://apps.apple.com/ru/app/incy/id6756943388",
+      },
+      {
+        id: "v2ray",
+        name: "v2ray",
+        icon: "../media/icons/v2ray.webp",
+        url: "https://apps.apple.com/ru/app/v2ray-client/id6747379524",
       },
     ],
     alternative: [
@@ -33,106 +33,107 @@ const APPS_DATA = {
   windows: {
     recommended: [
       {
-        id: "v2rayn",
-        name: "v2rayN",
-        icon: "assets/icons/v2rayn.png",
-        url: "#",
+        id: "hiddify",
+        name: "Hiddify",
+        icon: "../media/icons/hiddify.webp",
+        url: "...",
       },
       {
-        id: "nekoray",
-        name: "Nekoray",
-        icon: "assets/icons/nekoray.png",
-        url: "#",
+        id: "happ",
+        name: "Happ",
+        icon: "../media/icons/happ.webp",
+        url: "...",
       },
     ],
+
     alternative: [
-      {
-        id: "outline",
-        name: "Outline",
-        icon: "assets/icons/outline.png",
-        url: "#",
-      },
-      {
-        id: "flclash",
-        name: "Flclash",
-        icon: "assets/icons/flclash.png",
-        url: "#",
-      },
+      // {
+      //   id: "v2rayn",
+      //   name: "v2rayN",
+      //   icon: "../media/icons/v2rayn.webp",
+      //   url: "...",
+      // },
+      // {
+      //   id: "nekoray",
+      //   name: "NekoRay",
+      //   icon: "../media/icons/nekoray.webp",
+      //   url: "...",
+      // },
     ],
   },
   macos: {
     recommended: [
-      { id: "v2box", name: "V2Box", icon: "assets/icons/v2box.png", url: "#" },
       {
         id: "hiddify",
         name: "Hiddify",
-        icon: "assets/icons/Hiddify.png",
-        url: "#",
+        icon: "../media/icons/hiddify.webp",
+        url: "...",
+      },
+      {
+        id: "happ",
+        name: "Happ",
+        icon: "../media/icons/happ.webp",
+        url: "...",
       },
     ],
+
     alternative: [
       {
-        id: "foxray",
-        name: "FoXray",
-        icon: "assets/icons/foxray.png",
-        url: "#",
-      },
-      {
-        id: "streisand",
-        name: "Streisand",
-        icon: "assets/icons/streisand.png",
-        url: "#",
+        id: "v2box",
+        name: "V2Box",
+        icon: "../media/icons/v2box.webp",
+        url: "...",
       },
     ],
   },
   android: {
     recommended: [
       {
-        id: "v2rayng",
-        name: "v2rayNG",
-        icon: "assets/icons/v2rayng.png",
-        url: "#",
-      },
-      { id: "happ", name: "Happ", icon: "assets/icons/happ.png", url: "#" },
-    ],
-    alternative: [
-      {
         id: "hiddify",
         name: "Hiddify",
-        icon: "assets/icons/Hiddify.png",
-        url: "#",
+        icon: "../media/icons/hiddify.webp",
+        url: "...",
       },
       {
-        id: "nekobox",
-        name: "NekoBox",
-        icon: "assets/icons/nekobox.png",
-        url: "#",
+        id: "happ",
+        name: "Happ",
+        icon: "../media/icons/happ.webp",
+        url: "...",
+      },
+    ],
+
+    alternative: [
+      {
+        id: "v2raytun",
+        name: "v2RayTun",
+        icon: "../media/icons/v2raytun.webp",
+        url: "...",
+      },
+      {
+        id: "v2box",
+        name: "V2Box",
+        icon: "../media/icons/v2box.webp",
+        url: "...",
       },
     ],
   },
   linux: {
     recommended: [
       {
-        id: "nekoray",
-        name: "Nekoray",
-        icon: "assets/icons/nekoray.png",
-        url: "#",
-      },
-      {
         id: "hiddify",
         name: "Hiddify",
-        icon: "assets/icons/Hiddify.png",
-        url: "#",
+        icon: "../media/icons/hiddify.webp",
+        url: "...",
       },
-    ],
-    alternative: [
       {
-        id: "v2raya",
-        name: "v2rayA",
-        icon: "assets/icons/v2raya.png",
-        url: "#",
+        id: "happ",
+        name: "Happ",
+        icon: "../media/icons/happ.webp",
+        url: "...",
       },
     ],
+
+    alternative: [],
   },
 };
 
