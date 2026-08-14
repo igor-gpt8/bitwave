@@ -1,22 +1,21 @@
 <nav class="navbar-container">
     <div class="navbar-inner">
+        <div class="nav-capsule-indicator"></div>
         <div class="nav-left">
             <a href="index.html" class="logo">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <svg width="22" height="22" viewBox="0 0 64 64" fill="currentColor">
+                    <rect x="14" y="10" width="33" height="8" />
+                    <rect x="14" y="18" width="8" height="17" />
+                    <rect x="39" y="18" width="8" height="8" />
+                    <rect x="14" y="45" width="33" height="8" />
                 </svg>
                 <span>BitWave</span>
             </a>
-
             <div class="nav-links-wrapper">
-                <div class="nav-capsule-indicator"></div>
-
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Главная</a>
                     <a href="quick-start.html" class="nav-link">Быстрый старт</a>
                     <a href="security.html" class="nav-link">Безопасность</a>
-
                     <div class="dropdown-trigger">
                         <a href="resources.html" class="nav-link">Ресурсы</a>
                         <div class="dropdown-menu">
@@ -25,23 +24,48 @@
                             <a href="resources.html#sec-proxy">VPN vs Proxy</a>
                             <a href="resources.html#sec-dns">DNS сервера</a>
                             <a href="resources.html#faq-start">FAQ</a>
-                            <a href="resources.html#sec-definitions">Пользовательское соглашение</a>
+                            <a href="resources.html#sec-definitions">
+                                Пользовательское соглашение
+                            </a>
                         </div>
                     </div>
-
                     <a href="contacts.html" class="nav-link">Контакты</a>
                 </div>
             </div>
         </div>
-
         <div class="nav-right">
-            <a href="login.html" class="nav-link-auth">Войти</a>
-            <a href="register.html" class="btn-linear-nav">Регистрация</a>
+            <a href="login.html" class="nav-link nav-link-auth">Войти</a>
+            <a href="register.html" class="nav-link btn-linear-nav">
+                Регистрация
+            </a>
             <a href="profile.html" class="user-badge-nav hidden" id="nav-profile-btn">
                 <span class="status-dot"></span>
                 <span>Профиль</span>
             </a>
         </div>
-
+        <button class="mobile-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
+        <div class="mobile-menu">
+            <div class="mobile-menu-links">
+                <a href="index.html" class="mobile-nav-link">Главная</a>
+                <a href="quick-start.html" class="mobile-nav-link">Быстрый старт</a>
+                <a href="security.html" class="mobile-nav-link">Безопасность</a>
+                <a href="resources.html" class="mobile-nav-link">Ресурсы</a>
+                <a href="contacts.html" class="mobile-nav-link">Контакты</a>
+            </div>
+            <div class="mobile-menu-divider"></div>
+            <div class="mobile-menu-auth">
+                <a href="login.html" class="mobile-nav-link">Войти</a>
+                <a href="register.html" class="mobile-nav-link mobile-register">
+                    Регистрация
+                </a>
+                <a href="profile.html" class="mobile-nav-link hidden" id="mobile-profile-btn">
+                    <span class="status-dot"></span>
+                    Профиль
+                </a>
+            </div>
+        </div>
     </div>
 </nav>

@@ -1,14 +1,11 @@
-/* Основной макет страницы */
 .resources-layout {
   display: flex;
   gap: 64px;
   align-items: flex-start;
 }
-
-/* Нативный Sticky Sidebar */
 .resources-sidebar {
   position: sticky;
-  top: 140px; /* Изменено под твой новый отступ */
+  top: 140px; 
   width: 240px;
   flex-shrink: 0;
   display: flex;
@@ -16,17 +13,13 @@
   gap: 16px;
   max-height: calc(
     100vh - 160px
-  ); /* Сбалансированная высота с учетом отступа */
+  ); 
   overflow-y: auto;
-  scrollbar-width: none; /* Скрытие скроллбара Firefox */
+  scrollbar-width: none; 
 }
-
-/* Скрытие скроллбара Chrome/Safari */
 .resources-sidebar::-webkit-scrollbar {
   display: none;
 }
-
-/* Заголовок сайдбара */
 .sidebar-title {
   font-size: 11px;
   text-transform: uppercase;
@@ -35,16 +28,12 @@
   font-weight: 700;
   padding-left: 14px;
 }
-
-/* Контейнер навигации */
 .sidebar-nav-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-
-/* Премиальный плавающий индикатор ("Капсула") */
 .sidebar-indicator {
   position: absolute;
   left: 0;
@@ -65,8 +54,6 @@
     height 0.38s cubic-bezier(0.25, 1, 0.5, 1),
     opacity 0.25s ease;
 }
-
-/* Ссылки первого уровня */
 .sidebar-link {
   position: relative;
   z-index: 1;
@@ -79,17 +66,13 @@
   text-decoration: none;
   transition: color 0.2s ease;
 }
-
 .sidebar-link:hover,
 .sidebar-link.active {
   color: var(--text-primary);
 }
-
 .sidebar-link.active {
   font-weight: 600;
 }
-
-/* Контейнер подменю */
 .sidebar-submenu {
   max-height: 0;
   overflow: hidden;
@@ -98,20 +81,13 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  /* transition:
-    max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-    opacity 0.25s ease,
-    padding 0.3s ease; */
 }
-
 .sidebar-item.open .sidebar-submenu {
   max-height: 2000px;
   opacity: 1;
   padding-top: 4px;
   padding-bottom: 4px;
 }
-
-/* Ссылки второго уровня */
 .sidebar-sublink {
   position: relative;
   z-index: 1;
@@ -124,33 +100,26 @@
     color 0.2s ease,
     background-color 0.2s ease;
 }
-
 .sidebar-sublink:hover,
 .sidebar-sublink.active {
   color: var(--text-primary);
 }
-
-/* Контент статей */
 .resources-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 100px;
 }
-
 .article-section {
-  /* Важно: ровно 140px от верха экрана при переходе по ссылке-якорю */
   scroll-margin-top: 140px;
   padding-bottom: 30px;
   border-bottom: 1px solid var(--border-subtle);
   max-width: 720px;
 }
-
 .article-section:last-child {
   border-bottom: none;
   margin-bottom: 300px;
 }
-
 .article-section h2 {
   font-size: 28px;
   font-weight: 700;
@@ -158,14 +127,12 @@
   margin-bottom: 32px;
   color: var(--text-primary);
 }
-
 .article-section p {
   font-size: 16px;
   line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: 20px;
 }
-
 .article-card-info {
   background: #ffffff05;
   border-left: 3px solid var(--accent-blue);
@@ -173,23 +140,48 @@
   padding: 20px 24px;
   margin: 24px 0;
 }
-
 .article-card-info p {
   margin-bottom: 0;
   font-size: 14px;
   font-style: italic;
 }
-
-/* Адаптив под мобильные */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .resources-layout {
     flex-direction: column;
     gap: 40px;
   }
-
   .resources-sidebar {
     position: static !important;
     width: 100% !important;
     max-height: none;
+    overflow: visible;
+  }
+  .sidebar-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    font-weight: 700;
+    padding-left: 0px;
+  }
+  .sidebar-indicator {
+    display: none !important;
+  }
+  .sidebar-submenu {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .sidebar-link.active,
+  .sidebar-sublink.active {
+    color: var(--text-secondary);
+    font-weight: 500;
+    background: none;
+  }
+  .sidebar-link:hover,
+  .sidebar-sublink:hover {
+    color: var(--text-primary);
   }
 }

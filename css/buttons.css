@@ -1,4 +1,3 @@
-/* Базовые стили кнопок в стиле Apple & Linear */
 .btn-primary,
 .btn-secondary,
 .btn-linear-nav,
@@ -15,8 +14,6 @@
   transition: var(--transition-smooth);
   border: 1px solid transparent;
 }
-
-/* Главная акцентная кнопка (Apple Blue) */
 .btn-primary {
   background: var(--accent-blue);
   color: var(--text-primary);
@@ -24,7 +21,6 @@
     0 4px 14px rgba(0, 113, 227, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
-
 .btn-primary:hover {
   background: var(--accent-blue-hover);
   transform: translateY(-1px);
@@ -32,25 +28,19 @@
     0 6px 20px rgba(0, 113, 227, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
-
 .btn-primary:active {
   transform: translateY(1px);
 }
-
-/* Второстепенная кнопка */
 .btn-secondary {
   background: rgba(255, 255, 255, 0.05);
   border-color: var(--border-subtle);
   color: var(--text-primary);
 }
-
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
 }
-
-/* Кнопка регистрации в навбаре (Linear style) */
 .btn-linear-nav {
   font-size: 13px;
   padding: 6px 14px;
@@ -64,7 +54,6 @@
   color: var(--text-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
-
 .btn-linear-nav:hover {
   border-color: rgba(255, 255, 255, 0.2);
   background: linear-gradient(
@@ -73,8 +62,6 @@
     rgba(255, 255, 255, 0.05) 100%
   );
 }
-
-/* Мобильная кнопка */
 .mobile-btn {
   width: 100%;
   background: var(--accent-blue);

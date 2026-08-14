@@ -1,15 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Инициализация DOM-элементов ---
+  if (window.innerWidth < 1024) {
+    return;
+  }
+
   const sidebar = document.querySelector(".resources-sidebar");
   const indicator = document.getElementById("sidebar-indicator");
   const allLinks = document.querySelectorAll(".sidebar-link, .sidebar-sublink");
   const targets = document.querySelectorAll(".resources-content [id]");
   const sidebarItems = document.querySelectorAll(".sidebar-item");
 
-  // --- Константы конфигурации ---
   const NAVBAR_OFFSET = 140;
 
-  // --- Состояние приложения ---
   let isClickScrolling = false;
   let activeLink = null;
   let currentActiveSectionId = null;
@@ -19,13 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     history.scrollRestoration = "manual";
   }
 
-  // ==========================================
-  //  ИЗОЛИРОВАННАЯ ЛОГИКА КАПСУЛЫ (ИНДИКАТОРА)
-  // ==========================================
-
-  /**
-   * Функция берёт состояние ПРЯМО из DOM. Ей не нужны аргументы.
-   */
   function moveIndicator() {
     if (!indicator) return;
 
@@ -39,11 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     indicator.style.height = `${active.offsetHeight}px`;
   }
 
-  /**
-   * Единственный источник истины: MutationObserver следит за классами всех ссылок.
-   * Двойной rAF гарантирует, что даже если параллельно раскрылся аккордеон,
-   * координаты offsetTop будут посчитаны ПОСЛЕ финальной перерисовки DOM.
-   */
   const indicatorObserver = new MutationObserver(() => {
     requestAnimationFrame(() => {
       requestAnimationFrame(moveIndicator);
@@ -57,23 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ==========================================
-  // АТОМАРНЫЕ ФУНКЦИИ УПРАВЛЕНИЯ МЕНЮ
-  // ==========================================
-
-  /**
-   * 1. Просто переключает класс. Это триггерит MutationObserver.
-   */
   function setActiveLink(targetLink) {
     if (activeLink) activeLink.classList.remove("active");
     targetLink.classList.add("active");
     activeLink = targetLink;
   }
 
-  /**
-   * 2. Управляет состоянием аккордеона. Изменение высоты сайдбара
-   * больше не ломает капсулу, так как Observer ждет окончания перерисовки.
-   */
   function expandSidebar(targetLink) {
     const currentItem = targetLink.closest(".sidebar-item");
 
@@ -82,13 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /**
-   * 3. Центрирует сайдбара относительно активного элемента.
-   */
   function centerSidebar(targetLink, isSmooth = true) {
     if (!sidebar || !targetLink) return;
 
-    // Смещение считаем в rAF, чтобы центрирование учитывало раскрытие аккордеона
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         const targetScrollTop =
@@ -104,21 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================
-  // ГЛАВНЫЙ ОРКЕСТРАТОР ОБНОВЛЕНИЯ ИНТЕРФЕЙСА
-  // ==========================================
-
   function handleMenuStateChange(targetLink, isFromClick = false) {
     if (!targetLink) return;
 
-    setActiveLink(targetLink); // Шаг 1: Меняем класс -> Просыпается MutationObserver
-    expandSidebar(targetLink); // Шаг 2: Раскрываем/закрываем аккордеон
-    centerSidebar(targetLink, !isFromClick); // Шаг 3: Центрируем сайдбар
+    setActiveLink(targetLink);
+    expandSidebar(targetLink);
+    centerSidebar(targetLink, !isFromClick);
   }
-
-  // ==========================================
-  // ЛОГИКА ОПРЕДЕЛЕНИЯ АКТИВНОЙ СЕКЦИИ (SCROLL)
-  // ==========================================
 
   function updateActiveSection() {
     if (isClickScrolling || !targets.length) return;
@@ -157,16 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================
-  // ПОДПИСКА НА СОБЫТИЯ И ИНИЦИАЛИЗАЦИЯ
-  // ==========================================
-
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // Первичный расчет положения при загрузке
   updateActiveSection();
 
-  // Если класс active уже был в HTML, MutationObserver не сработает при инициализации, пнем его вручную
   const initialActive = document.querySelector(
     ".sidebar-link.active, .sidebar-sublink.active",
   );
@@ -175,9 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
     moveIndicator();
   }
 
-  /**
-   * Обработка кликов по ссылкам
-   */
   allLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -223,9 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /**
-   * Корректировка позиций при ресайзе окна
-   */
   window.addEventListener("resize", () => {
     moveIndicator();
     if (activeLink) centerSidebar(activeLink, false);

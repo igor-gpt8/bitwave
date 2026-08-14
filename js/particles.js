@@ -176,4 +176,10 @@ class ParticlesBackground {
 
 document.addEventListener("DOMContentLoaded", () => {
   new ParticlesBackground();
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove("preload");
+    });
+  });
 });

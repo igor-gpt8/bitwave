@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === 1. ЛОГИКА АВТОРЕСАЙЗА ТЕКСТОВЫХ ПОЛЕЙ ===
   const textareas = document.querySelectorAll(".textarea-auto");
 
   textareas.forEach((textarea) => {
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // === 2. ОБРАБОТКА ОТПРАВКИ ФОРМЫ ===
   const salesForm = document.getElementById("sales-form");
   if (salesForm) {
     salesForm.addEventListener("submit", submitContactForm);
@@ -27,43 +25,41 @@ document.addEventListener("DOMContentLoaded", () => {
 function submitContactForm(event) {
   event.preventDefault();
 
-  // Определяем, авторизован ли пользователь (скрыто ли состояние unauth)
   const isAuth = document
     .getElementById("view-unauth")
     .classList.contains("hidden");
 
-  // Получаем данные в зависимости от состояния интерфейса
   let email, message;
 
   if (isAuth) {
-    email = document.getElementById("user-email").value;
-    message = document.getElementById("msg-auth").value;
+    const emailEl = document.getElementById("user-email");
+    const messageEl = document.getElementById("msg-auth");
+
+    if (!emailEl || !messageEl) {
+      console.error("Не найдены поля авторизованной формы");
+      return;
+    }
+
+    email = emailEl.value;
+    message = messageEl.value;
   } else {
-    // Если неавторизован, но форма как-то отправилась (на будущее)
     email = document.querySelector(
       '#view-unauth .input-modern[type="email"]',
     ).value;
     message = document.getElementById("msg-unauth").value;
   }
 
-  // --- Твоя логика чата и тикетов (адаптированная под новые классы) ---
-
-  // Генерируем случайный номер тикета
   const ticketId = Math.floor(Math.random() * 9000) + 1000;
   const ticketEl = document.getElementById("ticket-id");
   if (ticketEl) ticketEl.innerText = ticketId;
 
-  // Записываем отправленный текст в баббл пользователя
   const userMsgEl = document.getElementById("user-chat-msg");
   if (userMsgEl) userMsgEl.innerText = message;
 
-  // Скрываем всю премиум-карточку (форму и шапку) и показываем чат
   const formWrapper = document.querySelector(".contact-form-wrapper");
-  // Если твой чат-бокс лежит внутри или рядом, управляем им:
   const chatBox = document.getElementById("chat-box");
 
   if (formWrapper && chatBox) {
-    // Вместо полной аннигиляции display: none, можно изящно переключить класс
     salesForm.style.display = "none";
     const formHeader = document.querySelector(".form-header-premium");
     if (formHeader) formHeader.style.display = "none";
@@ -72,7 +68,6 @@ function submitContactForm(event) {
     chatBox.classList.add("show");
   }
 
-  // Симулируем набор ответа ботом через 2.5 секунды
   setTimeout(() => {
     const typingStatus = document.getElementById("typing-status");
     if (typingStatus) typingStatus.style.display = "none";

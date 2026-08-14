@@ -1,47 +1,33 @@
 :root {
-  /* Цветовая палитра в стиле Linear/Vercel (Тёмная благородная тема) */
-  --bg-dark: #051f20;
+  --bg-dark: rgb(4, 19, 23);
   --bg-dark-gray: #050505;
   --bg-card: #081214;
   --bg-card-icon: #0071e31a;
   --border-subtle: #ffffff14;
   --border-hover: #5ea9ff66;
+  --style-border-hover: rgba(255, 255, 255, 0.2);
   --icon-border-hover: #0071e333;
-
   --bg-shadow: #00000066;
-
-  /* Текст */
   --text-primary: #f8f8f8;
   --text-secondary: #cad5d4;
   --text-muted: #666666;
-
-  /* Акцентные цвета */
   --accent-blue: #5ea9ff;
   --accent-peach: #ff5e5e;
   --accent-blue-hover: #147ce5;
   --accent-blue-glow: #7fe7c614;
   --accent-success: #30d158;
-
   --accent-particles: #8eb69b8e;
   --accent-particles-rgb: 79, 209, 197;
-
   --card-spotlight-color: #0071e30f;
-
   --text-primary-rgb: 255, 255, 255;
-
-  /* Шрифты и адаптив */
   --font-sans:
     "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
-
-  /* Эффекты размытия и тени */
   --blur-premium: blur(20px);
   --blur-dropdown: blur(30px);
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.15s ease;
-
-  /* Скругления углов */
   --radius-large: 19px;
   --radius-medium: 12px;
-  --radius-capsule: 999px;
+  --radius-capsule: 35px;
 }

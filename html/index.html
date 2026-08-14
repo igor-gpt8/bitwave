@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="preload">
 
 <head>
     <meta charset="UTF-8">
@@ -15,91 +15,81 @@
 </head>
 
 <body>
-
     <div class="canvas-container">
         <canvas id="particles-canvas"></canvas>
     </div>
-
     <div id="navbar"></div>
-
     <main class="hero-wrapper">
         <section class="hero-section text-center reveal">
             <h1 class="hero-title">Свобода и безопасность<br><span class="gradient-text">в каждом клике.</span></h1>
-            <p class="hero-subtitle">Высокоскоростной VPN нового поколения на базе сверхбыстрых протоколов Hysteria 2 и
-                VLESS. Абсолютная приватность и мгновенный обход DPI-блокировок.</p>
+            <p class="hero-subtitle">Высокоскоростной VPN нового поколения на базе сверхбыстрых протоколов. Абсолютная
+                приватность и обход DPI-блокировок.</p>
             <div class="hero-actions">
-                <a href="quick-start.html" class="btn-primary">Начать использование</a>
+                <a href="register.html" class="btn-primary">Начать использование</a>
                 <a href="resources.html" class="btn-secondary">Узнать больше</a>
             </div>
         </section>
-
         <section class="features-grid-section">
             <div class="features-grid">
-                <div class="feature-card reveal fade-left delay-150">
+                <div class="feature-card fade-in-left delay-50">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            <rect x="14" y="14" width="4" height="6" rx="2" />
+                            <rect x="6" y="4" width="4" height="6" rx="2" />
+                            <path d="M6 20h4" />
+                            <path d="M14 10h4" />
+                            <path d="M6 14h2v6" />
+                            <path d="M14 4h2v6" />
                         </svg>
                     </div>
                     <h3>Полная автоматизация</h3>
-                    <p>От момента проведения платежа до генерации конфигурационных ключей доступа — весь процесс
-                        выполняется мгновенно без ручной модерации.</p>
+                    <p>Система работает полностью самостоятельно: принимает оплату, обрабатывает заказ и автоматически
+                        создаёт и выдаёт доступ — без ручного вмешательства и задержек.</p>
                 </div>
-
-                <div class="feature-card reveal fade-left delay-250">
+                <div class="feature-card fade-in-left delay-150">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            <path d="M17 19a1 1 0 0 1-1-1v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1z" />
+                            <path d="M17 21v-2" />
+                            <path d="M19 14V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V10" />
+                            <path d="M21 21v-2" />
+                            <path d="M3 5V3" />
+                            <path d="M4 10a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a2 2 0 0 1-2 2z" />
+                            <path d="M7 5V3" />
                         </svg>
                     </div>
-                    <h3>Протоколы будущего</h3>
-                    <p>Внедрение современных протоколов VLESS и Hysteria 2. Идеальное решение для маскировки трафика под
-                        стандартный веб-поток (HTTPS).</p>
+                    <h3>Свободный интернет</h3>
+                    <p>Наша команда существует для того, чтобы сетевой трафик оставался незаметным для постороннего
+                        наблюдения, а
+                        доступ — свободным.
+                    </p>
                 </div>
-
-                <div class="feature-card reveal fade-left delay-350">
+                <div class="feature-card fade-in-left delay-250">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                            <line x1="1" y1="10" x2="23" y2="10"></line>
+                            <path d="M11 10v4h4" />
+                            <path d="m11 14 1.535-1.605a5 5 0 018 1.5" />
+                            <path d="M16 2v3" />
+                            <path d="m21 18-1.535 1.605a5 5 0 01-8-1.5" />
+                            <path d="M21 22v-4h-4" />
+                            <path d="M21 8.517V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h3.517" />
+                            <path d="M3 9h4" />
+                            <path d="M8 2v3" />
                         </svg>
                     </div>
                     <h3>Интеллектуальный биллинг</h3>
-                    <p>Оплаченные дни подписки суммируются и никогда не сгорают при продлении. Поддержка СБП, зарубежных
-                        карт и Telegram Stars.</p>
+                    <p>Все оплаченные дни сохраняются и суммируются, даже при продлении подписки заранее.</p>
                 </div>
             </div>
         </section>
     </main>
-
     <script src="../js/navigation.js"></script>
     <script src="../js/particles.js"></script>
     <script src="../js/dropdown.js"></script>
     <script src="../js/app.js"></script>
-
-    <!-- SVG-фильтр для эффекта пролитой краски -->
-    <!-- <svg style="position: absolute; width: 0; height: 0; pointer-events: none;" aria-hidden="true"> -->
-    <!-- <defs> -->
-    <!-- <filter id="paint-drip" x="-20%" y="-20%" width="140%" height="140%"> -->
-    <!-- Генерируем жидкую шумную текстуру -->
-    <!-- <feTurbulence type="fractalNoise" baseFrequency="0.02 0.08" numOctaves="3" result="noise" /> -->
-
-    <!-- Смещаем границы текста по текстуре шума -->
-    <!-- <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" -->
-    <!-- result="displaced" /> -->
-
-    <!-- Немного сглаживаем и утолщаем подтеки -->
-    <!-- <feMorphology operator="dilate" radius="1" in="displaced" result="thickened" /> -->
-    <!-- </filter> -->
-    <!-- </defs> -->
-    <!-- </svg> -->
 </body>
 
 </html>

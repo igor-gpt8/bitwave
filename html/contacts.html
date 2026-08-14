@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="preload">
 
 <head>
     <meta charset="UTF-8">
@@ -25,8 +25,8 @@
 
     <main class="contacts-container">
         <div class="linear-split-grid">
-            <section class="linear-hero-column reveal">
-                <h1 class="hero-title-premium">Чем мы можем<br>помочь?</h1>
+            <section class="linear-hero-column fade-in-down">
+                <h1 class="hero-title-premium">Появились <br>вопросы?</h1>
                 <p class="hero-subtitle-premium">
                     Получите демонстрацию, помощь в адаптации или ответы на вопросы о продукте.
                 </p>
@@ -44,12 +44,12 @@
                 </ul>
 
                 <div class="faq-block">
-                    <span class="faq-text">Не нашли ответ?</span>
+                    <span class="faq-text">Возможно, мы уже ответили на ваш вопрос.</span>
                     <a href="resources.html#faq-start" class="link">Посмотрите FAQ →</a>
                 </div>
             </section>
 
-            <div class="contact-form-wrapper reveal delay-150">
+            <div class="contact-form-wrapper fade-in-right delay-150">
                 <div class="form-header-premium">
                     <h3 class="form-title">Напишите нам</h3>
                     <!-- <p class="form-subtitle">Мы ответим на указанную электронную почту.</p> -->
@@ -62,22 +62,30 @@
                     </div>
 
                     <div class="form-group-modern">
-                        <textarea class="input-modern textarea-auto"
+                        <textarea id="msg-unauth" class="input-modern textarea-auto"
                             placeholder="Опишите вопрос, проблему или предложение. Чем подробнее описание, тем быстрее мы сможем помочь."></textarea>
                     </div>
 
                     <div class="linear-auth-gate premium-gate">
                         <div class="linear-gate-box">
-                            <p>Чтобы отправить сообщение, необходимо войти в аккаунт.</p>
-                            <a href="login.html" class="btn-primary linear-gate-btn">Войти</a>
+                            <p>
+                                Чтобы отправить сообщение, необходимо войти в аккаунт.
+                            </p>
+
+                            <a href="login.html" class="btn-primary linear-gate-btn">
+                                Войти
+                            </a>
                         </div>
                     </div>
+
                 </div>
 
                 <div id="view-auth" class="auth-view-state hidden">
                     <form id="sales-form">
+
                         <div class="user-identity-block">
                             <span class="identity-label">identity-label</span>
+
                             <div class="identity-user">
                                 <span class="identity-name">identity-name</span>
                                 <div class="status-dot"></div>
@@ -86,25 +94,43 @@
                         </div>
 
                         <div class="form-group-modern">
-                            <input class="input-modern" type="email" value="igor@example.com"
-                                placeholder="Электронная почта">
+                            <input id="user-email" class="input-modern" type="email" placeholder="Электронная почта">
                         </div>
 
                         <div class="form-group-modern">
-                            <textarea class="input-modern textarea-auto" required
+                            <textarea id="msg-auth" class="input-modern textarea-auto" required
                                 placeholder="Опишите вопрос, проблему или предложение. Чем подробнее описание, тем быстрее мы сможем помочь."></textarea>
                         </div>
 
-                        <button class="btn-primary linear-submit-btn" type="submit">Отправить сообщение</button>
+                        <button class="btn-primary linear-submit-btn" type="submit">
+                            Отправить сообщение
+                        </button>
+
                     </form>
                 </div>
 
-                <div class="alt-contact-block">
-                    <div class="auth-divider">Другие способы связи</div>
-                    <div class="alt-contact-links">
-                        <a href="mailto:sales@bitwave.example" class="link">Электронная почта</a> <a
-                            href="https://t.me/BitWawe_bot" class="link" target="_blank">Telegram</a>
+                <div class="sidebar-help-card">
+                    <div class="help-header">
+                        <span class="help-desc">Другие способы связи</span>
                     </div>
+                    <a href="https://t.me/example" class="btn-help-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="0">
+                            <path
+                                d="M20.8 3.4L3.55 10.05C2.37 10.52 2.38 11.17 3.34 11.46L7.76 12.84L9.46 18.02C9.67 18.62 9.57 18.86 10.19 18.86C10.67 18.86 10.88 18.64 11.15 18.38L13.29 16.3L17.74 19.58C18.56 20.03 19.15 19.8 19.36 18.82L22.04 4.67C22.35 3.46 21.59 2.91 20.8 3.4ZM17.99 7.47L10.55 14.08L10.26 17.19L9.02 13.3L17.99 7.47Z"
+                                fill="currentColor" />
+                        </svg>
+                        Написать в Telegram
+                    </a>
+                    <a href="mailto:dev.pevnev@gmail.com" class="btn-help-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Написать на почту
+                    </a>
                 </div>
 
             </div>

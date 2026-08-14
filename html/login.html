@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="preload">
 
 <head>
     <meta charset="UTF-8">
@@ -17,20 +17,18 @@
     <div class="canvas-container">
         <canvas id="particles-canvas"></canvas>
     </div>
-
     <div id="navbar"></div>
-
     <main class="auth-container fade-in-page">
         <div class="auth-centered-wrapper">
             <div class="auth-brand-logo">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="currentColor">
+                    <rect x="14" y="10" width="33" height="8" />
+                    <rect x="14" y="18" width="8" height="17" />
+                    <rect x="39" y="18" width="8" height="8" />
+                    <rect x="14" y="45" width="33" height="8" />
                 </svg>
             </div>
-
             <h1 class="auth-main-title">Войти в BitWave</h1>
-
             <div class="auth-oauth-row">
                 <button class="btn-oauth-tile fade-in-left delay-100" onclick="loginWithGoogle()"
                     title="Войти через Google">
@@ -54,27 +52,21 @@
                     </svg>
                 </button>
             </div>
-
             <div class="auth-minimal-divider fade-in-page delay-200">или</div>
-
             <form class="auth-minimal-form" onsubmit="handleLogin(event)">
                 <div class="input-wrapper-modern fade-in-up delay-100">
                     <input class="input-modern" type="email" id="email" placeholder="Электронная почта" required>
                 </div>
-
                 <div class="input-wrapper-modern fade-in-up delay-200">
                     <input class="input-modern" type="password" id="password" placeholder="Пароль" required>
                 </div>
-
                 <button class="btn-raycast-primary fade-in-up delay-300" type="submit">Войти</button>
             </form>
-
             <div class="auth-minimal-footer fade-in-up delay-400">
                 <a href="register.html" class="btn-secondary-outline">Нет аккаунта? Зарегистрироваться</a>
             </div>
         </div>
     </main>
-
     <script src="../js/navigation.js"></script>
     <script src="../js/particles.js"></script>
     <script src="../js/client.js"></script>

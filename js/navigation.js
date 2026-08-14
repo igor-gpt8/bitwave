@@ -3,17 +3,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   initNavbar();
   initCards();
 
-  // Находим вообще все элементы с классом, начинающимся на "delay-"
   document.querySelectorAll('[class*="delay-"]').forEach((element) => {
-    // Ищем в списке классов именно тот, который содержит delay-
     const delayClass = Array.from(element.classList).find((cls) =>
       cls.startsWith("delay-"),
     );
 
     if (delayClass) {
-      // Вытаскиваем число (например, из "delay-250" получим "250")
       const ms = delayClass.split("-")[1];
-      // Нативно вешаем задержку
       element.style.transitionDelay = `${ms}ms`;
       element.style.animationDelay = `${ms}ms`;
     }
@@ -33,19 +29,56 @@ async function loadNavbar() {
 }
 
 function initNavbar() {
-  const navLinks = document.querySelectorAll(".nav-links .nav-link");
+  const navbarInner = document.querySelector(".navbar-inner");
+  const navLinks = document.querySelectorAll(".nav-link");
   const indicator = document.querySelector(".nav-capsule-indicator");
   const toggle = document.querySelector(".mobile-menu-toggle");
-  const overlay = document.querySelector(".mobile-overlay");
+  const mobileMenu = document.querySelector(".mobile-menu");
 
-  // Определяем текущую страницу
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const loginBtn = document.querySelector(".nav-link-auth");
+  const registerBtn = document.querySelector(".btn-linear-nav");
+  const profileBtn = document.getElementById("nav-profile-btn");
 
-  // Удаляем active у всех ссылок
-  navLinks.forEach((link) => link.classList.remove("active"));
+  const mobileLoginBtn = document.querySelector(
+    ".mobile-menu-auth .mobile-nav-link[href='login.html']",
+  );
+  const mobileRegisterBtn = document.querySelector(
+    ".mobile-menu-auth .mobile-nav-link[href='register.html']",
+  );
+  const mobileProfileBtn = document.getElementById("mobile-profile-btn");
 
-  // Назначаем active нужной
+  if (currentPage === "profile.html" || currentPage === "personal-info.html") {
+    loginBtn?.classList.add("hidden");
+    registerBtn?.classList.add("hidden");
+    profileBtn?.classList.remove("hidden");
+
+    mobileLoginBtn?.classList.add("hidden");
+    mobileRegisterBtn?.classList.add("hidden");
+    mobileProfileBtn?.classList.remove("hidden");
+  } else {
+    loginBtn?.classList.remove("hidden");
+    registerBtn?.classList.remove("hidden");
+    profileBtn?.classList.add("hidden");
+
+    mobileLoginBtn?.classList.remove("hidden");
+    mobileRegisterBtn?.classList.remove("hidden");
+    mobileProfileBtn?.classList.add("hidden");
+  }
+
   navLinks.forEach((link) => {
+    link.classList.remove("active");
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("active");
+    }
+  });
+
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+  mobileNavLinks.forEach((link) => {
+    link.classList.remove("active");
+
     const href = link.getAttribute("href");
 
     if (href === currentPage) {
@@ -54,18 +87,17 @@ function initNavbar() {
   });
 
   function updateIndicator(element) {
-    if (!element || !indicator) return;
+    if (!element || !indicator || !navbarInner) return;
 
-    const rect = element.getBoundingClientRect();
-    const parentRect =
-      element.parentElement.parentElement.getBoundingClientRect();
+    const elemRect = element.getBoundingClientRect();
+    const parentRect = navbarInner.getBoundingClientRect();
 
-    indicator.style.width = `${rect.width}px`;
-    indicator.style.left = `${rect.left - parentRect.left}px`;
+    indicator.style.width = `${elemRect.width}px`;
+    indicator.style.left = `${elemRect.left - parentRect.left}px`;
     indicator.style.opacity = "1";
   }
 
-  const activeLink = document.querySelector(".nav-links .nav-link.active");
+  const activeLink = document.querySelector(".nav-link.active");
 
   if (activeLink) {
     setTimeout(() => updateIndicator(activeLink), 150);
@@ -77,12 +109,9 @@ function initNavbar() {
     });
   });
 
-  const navLinksContainer = document.querySelector(".nav-links");
-
-  if (navLinksContainer) {
-    navLinksContainer.addEventListener("mouseleave", () => {
-      const active = document.querySelector(".nav-links .nav-link.active");
-
+  if (navbarInner) {
+    navbarInner.addEventListener("mouseleave", () => {
+      const active = document.querySelector(".nav-link.active");
       if (active) {
         updateIndicator(active);
       } else if (indicator) {
@@ -91,13 +120,33 @@ function initNavbar() {
     });
   }
 
-  if (toggle && overlay) {
+  if (toggle && navbarInner) {
     toggle.addEventListener("click", () => {
-      toggle.classList.toggle("active");
-      overlay.classList.toggle("active");
-      document.body.classList.toggle("no-scroll");
+      const isOpen = navbarInner.classList.toggle("mobile-open");
+
+      toggle.setAttribute("aria-expanded", isOpen);
+      toggle.setAttribute(
+        "aria-label",
+        isOpen ? "Закрыть меню" : "Открыть меню",
+      );
+
+      document.body.classList.toggle("no-scroll", isOpen);
     });
   }
+  document.addEventListener("click", (e) => {
+    if (!navbarInner || !navbarInner.classList.contains("mobile-open")) {
+      return;
+    }
+
+    if (!navbarInner.contains(e.target)) {
+      navbarInner.classList.remove("mobile-open");
+
+      toggle?.setAttribute("aria-expanded", "false");
+      toggle?.setAttribute("aria-label", "Открыть меню");
+
+      document.body.classList.remove("no-scroll");
+    }
+  });
 }
 
 function initCards() {
