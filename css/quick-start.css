@@ -646,6 +646,9 @@
     margin-left: 0;
     width: 100%;
   }
+  .setup-timeline::before {
+    display: none;
+  }
   .step-number {
     display: none;
   }
@@ -666,13 +669,13 @@
   .sticky-guide-content {
     position: sticky !important;
     top: 120px !important;
-    height: calc(100vh - 160px) !important;
+    height: auto !important;
+    min-height: calc(100vh - 160px);
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
     box-sizing: border-box;
-    z-index: 10;
   }
   .guide-phone-mockup {
     width: 100%;
